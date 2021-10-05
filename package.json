@@ -1,0 +1,20 @@
+{
+  "name": "subscription",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^3.21.6",
+    "fastify-static": "^4.2.3",
+    "fastify-url-data": "^3.0.3",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5"
+  }
+}
