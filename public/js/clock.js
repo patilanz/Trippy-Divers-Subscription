@@ -28,10 +28,10 @@ window.onload = function (){
     tminutes = Math.floor(tminutes);
     tseconds = Math.floor(tseconds);
 
-    if(days.innerText*1 !== tdays)changeTime(days, tdays);
-    if(hours.innerText*1 !== thours)changeTime(hours, thours);
-    if(minutes.innerText*1 !== tminutes)changeTime(minutes, tminutes);
-    if(seconds.innerText*1 !== tseconds)changeTime(seconds, tseconds);
+    if(days.innerText !== tdays+'')changeTime(days, tdays);
+    if(hours.innerText !== thours+'')changeTime(hours, thours);
+    if(minutes.innerText !== tminutes+'')changeTime(minutes, tminutes);
+    if(seconds.innerText !== tseconds+'')changeTime(seconds, tseconds);
   }, 1000);
 
 
