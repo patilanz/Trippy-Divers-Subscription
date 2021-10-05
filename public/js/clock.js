@@ -7,7 +7,7 @@ window.onload = function (){
 
   const changeTime = function (e, t) {
     e.className = 'moveTime';
-    e.innerText = t;
+    e.innerText = t+'';
 
     setTimeout(function () {
       e.className = '';
