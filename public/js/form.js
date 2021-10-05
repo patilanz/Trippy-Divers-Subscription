@@ -31,6 +31,7 @@ const sendNotification = async e => {
 
   console.log(content);
   alert('Gracias ! Le notificaremos ');
+  document.querySelector('#email_box').style.display = 'none';
   /*
 
   grecaptcha.ready(function() {
