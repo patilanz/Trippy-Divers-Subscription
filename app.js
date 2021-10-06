@@ -4,7 +4,6 @@ const path = require("path");
 
 const fastify = require('fastify')();
 fastify.register(require('fastify-url-data'));
-fastify.register(require('fastify-https-redirect'));
 
 const {Sequelize, QueryTypes} = require('sequelize');
 
@@ -27,7 +26,7 @@ fastify.post('/ab', async (request, response) => {
 
 
 const start = async () => {
-  await fastify.listen(process.env.PORT || 80);
+  await fastify.listen(process.env.PORT || 80,'0.0.0.0')
 }
 
 start();
