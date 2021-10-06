@@ -9,7 +9,12 @@ const {Sequelize, QueryTypes} = require('sequelize');
 
 let sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL, {pool: {max: 5, min:1, acquire: 3000},logging: true});
 
+fastify.addHook('preHandler',(request, reply, next) => {
 
+  console.log(request);
+
+  next();
+});
 fastify.register(fastifyStatic, {
   root: path.join(require.main.path, 'public'),
   prefix: '/'
