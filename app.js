@@ -17,9 +17,9 @@ fastify.register(fastifyStatic, {
 
 fastify.post('/ab', async (request, response) => {
   const email = request.body.email;
-  const type = request.urlData().host.indexOf('trekkers') === -1 ? 'd' : 't';
-
-  await sequelize.query('INSERT INTO email (email, type) VALUES (?,?)', {type: QueryTypes.INSERT, replacements: [email, type]});
+  const type = request.urlData().host.indexOf('trekkers') === -1 ? 't' : 'd';
+  console.log(request.urlData());
+  await sequelize.query('INSERT INTO email (email, type) VALUES (?,?)', {type: QueryTypes.INSERT, replacements: [email, 'd']});
 
   return {success: true};
 });
