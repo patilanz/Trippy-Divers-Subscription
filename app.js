@@ -27,7 +27,7 @@ fastify.post('/ab', async (request, response) => {
 
 
 const start = async () => {
-  await fastify.listen(process.env.PORT || 80,'0.0.0.0');
+  await fastify.listen(process.env.PORT || 80);
 }
 
 start();
