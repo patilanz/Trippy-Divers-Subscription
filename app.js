@@ -9,12 +9,21 @@ const {Sequelize, QueryTypes} = require('sequelize');
 
 let sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL, {pool: {max: 5, min:1, acquire: 3000},logging: true});
 
-fastify.addHook('preHandler',(request, reply, next) => {
+fastify.addHook('preHandler',async (request, reply) => {
 
-  console.log(request);
+  const isHttps = ((req.headers['x-forwarded-proto'] || '').substring(0, 5) === 'https')
+  if (isHttps) {
+    return
+  }
 
-  next();
+  const { method, url } = req.req
+
+  if (method && ['GET', 'HEAD'].includes(method)) {
+    const host = req.headers.host || req.hostname
+    reply.redirect(301, `https://${host}${url}`)
+  }
 });
+
 fastify.register(fastifyStatic, {
   root: path.join(require.main.path, 'public'),
   prefix: '/'
