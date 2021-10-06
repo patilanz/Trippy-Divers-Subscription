@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "fastify": "^3.21.6",
+    "fastify-https-redirect": "^1.0.4",
     "fastify-static": "^4.2.3",
     "fastify-url-data": "^3.0.3",
     "mysql2": "^2.3.0",
