@@ -9,6 +9,13 @@ const {Sequelize, QueryTypes} = require('sequelize');
 
 let sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL, {pool: {max: 5, min:1, acquire: 3000},logging: true});
 
+fastify.addHook('preHandler',(request, reply, next) => {
+  if(request.protocol === 'http'){
+    return reply.redirect('https://www.trippydivers.com');
+  }
+
+  next();
+});
 
 fastify.register(fastifyStatic, {
   root: path.join(require.main.path, 'public'),
